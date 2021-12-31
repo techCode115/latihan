@@ -6,8 +6,15 @@ if (isset($_POST['login'])) {
     $pass = $_POST['password'];
     $cek = mysqli_query($host, "SELECT * FROM user WHERE username = '$user'")->fetch_assoc();
     if ($cek) {
-        var_dump($cek);
-        die;
+        if (password_verify($pass, $cek['password'])) {
+            $_SESSION['username'] = $cek['username'];
+            $_SESSION['level'] = $cek['level'];
+            $_SESSION['id'] = $cek['id'];
+            $_SESSION['login'] = true;
+            header('location:home.php');
+        } else {
+            $error = 'username atau password salah';
+        }
     } else {
         $error = 'Akun tidak ditemukan silahkan daftar terlebih dahulu';
     }

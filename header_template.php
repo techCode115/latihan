@@ -26,12 +26,21 @@ require_once('koneksi.php');
             </ul>
             <div class="form-inline my-2 my-lg-0">
                 <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="login.php">Login</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="register.php">Register</a>
-                    </li>
+                    <?php if (isset($_SESSION['login'])) : ?>
+                        <li class="nav-item">
+                            <a class="nav-link" href="home.php">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="logout.php">Keluar</a>
+                        </li>
+                    <?php else : ?>
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.php">Login</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="register.php">Register</a>
+                        </li>
+                    <?php endif; ?>
                 </ul>
             </div>
         </div>
