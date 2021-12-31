@@ -31,6 +31,9 @@ require_once('koneksi.php');
                             <a class="nav-link" href="home.php">Home</a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link" href="user.php">User</a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link" href="logout.php">Keluar</a>
                         </li>
                     <?php else : ?>
