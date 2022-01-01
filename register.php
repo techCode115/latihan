@@ -5,7 +5,7 @@ if (isset($_POST['daftar'])) {
     $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
     mysqli_query($host, "INSERT INTO user VALUES(null,'$username','$password','member')");
     if (mysqli_affected_rows($host) > 0) {
-        header('location:login.php');
+        header('location:index.php');
     } else {
         $error = true;
     }
